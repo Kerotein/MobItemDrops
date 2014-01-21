@@ -1,0 +1,78 @@
+#/MobItemDrops configuration.
+#
+#If value set to "true", then mob can drop items.
+#If value set to "false", then mob cannot drop items.
+#
+#If override-value set to "none" then do not override mob drop values.
+#If override-value set to "true" then set all mob drops to "true".
+#If override-value set to "false" then set all mob drops to "false"./
+
+override-value: none
+debug: false
+drop-xp: false
+
+bat: true
+blaze: true
+cave_spider: true
+chicken: true
+cow: true
+creeper: true
+ender_dragon: true
+enderman: true
+ghast: true
+horse: true
+iron_golem: true
+magma_cube: true
+mushroom_cow: true
+ocelot: true
+pig: true
+pig_zombie: true
+sheep: true
+silverfish: true
+skeleton: true
+slime: true
+snowman: true
+spider: true
+squid: true
+villager: true
+witch: true
+wither: true
+wolf: true
+zombie: true
+zombie_villager: true
+
+#/Default Settings
+#override-value: none
+#debug: false
+#drop-xp: false
+#
+#bat: true
+#blaze: true
+#cave_spider: true
+#chicken: true
+#cow: true
+#creeper: true
+#ender_dragon: true
+#enderman: true
+#ghast: true
+#horse: true
+#iron_golem: true
+#magma_cube: true
+#mushroom_cow: true
+#ocelot: true
+#pig: true
+#pig_zombie: true
+#sheep: true
+#silverfish: true
+#skeleton: true
+#slime: true
+#snowman: true
+#spider: true
+#squid: true
+#villager: true
+#witch: true
+#wither: true
+#wolf: true
+#zombie: true
+#zombie_villager: true
+#/
