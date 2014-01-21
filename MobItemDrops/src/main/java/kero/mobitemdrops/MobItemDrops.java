@@ -2,6 +2,9 @@ package kero.mobitemdrops;
 
 import java.io.IOException;
 
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
@@ -30,6 +33,35 @@ public class MobItemDrops extends JavaPlugin implements Listener {
 	@Override
 	public void onDisable() {
 		getLogger().info("Mob Item Drops plugin disabled");
+	}
+
+	@EventHandler
+	public boolean onCommand(CommandSender sender, Command cmd, String label,
+			String[] args) {
+		if (cmd.getName().equalsIgnoreCase("mobitemdrops")) {
+			if (args.length > 0) {
+
+				if (!sender.hasPermission("mobitemdrops.reload")) {
+					sender.sendMessage(ChatColor.RED
+							+ "You do not have permission to use this command!");
+					return true;
+				} else if (args[0].equalsIgnoreCase("reload")) {
+					if (!sender.hasPermission("mobitemdrops.reload")) {
+						sender.sendMessage(ChatColor.RED
+								+ "You do not have permission to use this command!");
+						return true;
+					}
+					reloadConfig();
+					sender.sendMessage(ChatColor.GREEN
+							+ "TnTLevelLimit config has been reloaded.");
+					return true;
+				}
+				sender.sendMessage("---------- Mob Item Drops ----------");
+				sender.sendMessage("/mobitemdrops reload");
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@EventHandler
