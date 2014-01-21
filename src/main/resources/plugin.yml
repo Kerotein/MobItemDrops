@@ -1,0 +1,8 @@
+name: MobItemDrops
+main: kero.mobitemdrops.MobItemDrops
+version: 1.0
+commands:
+    mobitemdrops:
+        usage: /mobitemdrops
+        aliases: mid
+        description: MobItemDrops Commands.
