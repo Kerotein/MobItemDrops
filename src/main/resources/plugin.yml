@@ -1,6 +1,6 @@
 name: MobItemDrops
 main: kero.mobitemdrops.MobItemDrops
-version: 1.0
+version: ${project.version}
 commands:
     mobitemdrops:
         usage: /mobitemdrops
