@@ -1,9 +1,12 @@
 package kero.mobitemdrops;
 
+import java.io.IOException;
+
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.mcstats.Metrics;
 
 public class MobItemDrops extends JavaPlugin implements Listener {
 
@@ -16,6 +19,12 @@ public class MobItemDrops extends JavaPlugin implements Listener {
 		{
 		}
 		getLogger().info("Mob Item Drops plugin enabled");
+		try {
+			Metrics metrics = new Metrics(this);
+			metrics.start();
+		} catch (IOException e) {
+			// Failed to submit the statistics :-(
+		}
 	}
 
 	@Override
