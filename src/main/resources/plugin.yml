@@ -1,6 +1,8 @@
 name: MobItemDrops
 main: kero.mobitemdrops.MobItemDrops
 version: ${project.version}
+description: Mob Item Drops
+author: Kerotein
 commands:
     mobitemdrops:
         usage: /mobitemdrops

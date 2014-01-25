@@ -2,6 +2,8 @@ package kero.mobitemdrops;
 
 import java.io.IOException;
 
+import kero.mobitemdrops.Updater.UpdateResult;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -21,12 +23,25 @@ public class MobItemDrops extends JavaPlugin implements Listener {
 		saveDefaultConfig();
 		{
 		}
-		getLogger().info("Mob Item Drops enabled");
+		getLogger().info(
+				"Mob Item Drops " + this.getDescription().getVersion()
+						+ " enabled");
 		try {
 			Metrics metrics = new Metrics(this);
 			metrics.start();
 		} catch (IOException e) {
 			// Failed to submit the statistics :-(
+		}
+		Boolean updateCheck = Boolean.valueOf(getConfig().getBoolean(
+				"update-check"));
+		if (updateCheck == false) {
+		} else {
+			Updater updater = new Updater(this, 72929, this.getFile(),
+					Updater.UpdateType.NO_DOWNLOAD, false);
+			if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
+				getLogger().info(
+						"**A new update is available for Mob Item Drops**");
+			}
 		}
 	}
 
@@ -44,7 +59,8 @@ public class MobItemDrops extends JavaPlugin implements Listener {
 					sender.sendMessage(ChatColor.RED
 							+ "You do not have permission to use this command!");
 					return true;
-				} else if (args[0].equalsIgnoreCase("reload")) {
+				} else if (args[0].equalsIgnoreCase("reload")
+						|| (args[0].equalsIgnoreCase("r"))) {
 					if (!sender.hasPermission("mobitemdrops.reload")) {
 						sender.sendMessage(ChatColor.RED
 								+ "You do not have permission to use this command!");
